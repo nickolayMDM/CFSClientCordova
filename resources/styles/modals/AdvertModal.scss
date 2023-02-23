@@ -1,0 +1,22 @@
+@import "../_variables";
+
+.modal-advert {
+
+  &.modal-locked .modal-header-close {
+    opacity: 0;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  .modal-header-close {
+    opacity: 1;
+    position: absolute;
+    right: -12px;
+    top: -12px;
+    background: radial-gradient(circle, $color-white 0%, $color-white 50%, rgba(0,0,0,0) 51%);
+    border-radius: 50%;
+    transition: opacity $defaultTransition;
+  }
+}

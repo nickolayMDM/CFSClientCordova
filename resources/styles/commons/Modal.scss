@@ -1,0 +1,97 @@
+@import "../_variables";
+
+@mixin mode($name, $backgroundColor, $primaryColor, $defaultBorderRadius) {
+  .app-mode-#{$name} .modal {
+    background-color: #{$backgroundColor};
+    border-radius: #{$defaultBorderRadius};
+  }
+}
+
+@include mode(
+                "bright",
+                $brightMode-color-background,
+                $brightMode-color-primary,
+                $default-borderRadius
+);
+
+@include mode(
+                "dark",
+                $darkMode-color-background,
+                $darkMode-color-primary,
+                $default-borderRadius
+);
+
+.modal {
+  position: absolute;
+  opacity: 1;
+  width: 100vw - ($outerPadding * 2);
+  top: 0;
+  left: 0;
+  margin: $outerPadding;
+  padding: 10px;
+  border-color: transparent;
+  z-index: $zModal;
+  box-shadow: 0 0 7px 5px rgba($blackColor, 0.24);
+
+  &.transition {
+    transition: $defaultTransition all;
+  }
+
+  &.fade {
+    opacity: 0;
+    top: 10vh;
+  }
+
+  .modal-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+
+    .modal-title {
+      margin: 0;
+      font-weight: 700;
+    }
+
+    .modal-header-close {
+      position: absolute;
+      right: 6px;
+      top: 6px;
+    }
+  }
+
+  .modal-footer {
+    display: flex;
+    justify-content: end;
+    margin-top: 15px;
+  }
+
+  .modal-main-text {
+    padding-bottom: 15px;
+    font-size: 17px;
+    text-align: center;
+    font-weight: 500;
+  }
+
+  .modal-button-choice {
+    display: flex;
+    align-items: center;
+    button {
+      flex: 1 1 50%;
+    }
+    .modal-choice-division {
+      flex: 0 1 1%;
+      align-items: center;
+      padding: 0 5px;
+    }
+  }
+
+  &.elevation-vh-15 {
+    top: 15vh;
+    &.fade {
+      opacity: 0;
+      top: 25vh;
+    }
+  }
+}

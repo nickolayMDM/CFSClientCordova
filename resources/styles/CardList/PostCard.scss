@@ -1,0 +1,150 @@
+@import "../_variables";
+
+$postCardHeight: 163px;
+
+@mixin mode($name, $primaryColor) {
+  .app-mode-#{$name} .post-card {
+    .text-container > a {
+      color: #{$primaryColor};
+    }
+  }
+}
+
+@include mode(
+                "bright",
+                $brightMode-color-primary
+);
+
+@include mode(
+                "dark",
+                $darkMode-color-primary
+);
+
+.post-card {
+  height: $postCardHeight;
+  align-items: flex-start;
+
+  &.post-card-with-folder {
+    padding-top: 20px;
+
+    .post-folder {
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      align-items: end;
+
+      > p {
+        margin-left: 5px;
+        font-weight: 700;
+      }
+    }
+  }
+
+  .component-container {
+    color: $blackColor;
+    width: 100%;
+  }
+
+  .image {
+    max-height: $postCardHeight;
+    max-width: 100px;
+  }
+
+  .text-container {
+    height: $postCardHeight;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    justify-content: flex-start;
+    flex-grow: 1;
+
+    > a {
+      text-decoration: none;
+    }
+
+    button {
+      margin-top: 15px;
+    }
+  }
+
+  $nameLines: 2;
+  $nameMaxHeight: $defaultLineHeight * $nameLines - 2;
+
+  .name {
+    flex: 1;
+    font-size: $defaultFontSize;
+    line-height: $defaultLineHeight;
+    height: $nameMaxHeight;
+    max-height: $nameMaxHeight;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+  }
+
+  .author {
+    font-weight: bold;
+    overflow: hidden;
+    max-height: 14px;
+    line-height: 14px;
+  }
+
+  $noteLines: 3;
+  $noteMaxHeight: $defaultLineHeight * $noteLines - 2;
+
+  .post-note {
+    margin-top: 11px;
+    line-height: $defaultLineHeight;
+    height: $noteMaxHeight;
+    max-height: $noteMaxHeight;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+  }
+
+  .indicators {
+    min-width: 17px;
+    padding: 10px 0;
+    align-items: center;
+
+    > div {
+      margin: 3px 0;
+    }
+  }
+
+  .image-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: $postCardHeight;
+    width: 100px;
+    background-color: $color-black;
+  }
+
+  .provider-icon-youtube {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    background-color: $color-white;
+    border-radius: 50%;
+    padding: 3px;
+    path {
+      fill: $color-red-youtube;
+    }
+  }
+
+  .provider-icon-tiktok {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    background-color: $color-black;
+    border-radius: 50%;
+    padding: 3px;
+    path {
+      fill: $color-white;
+    }
+  }
+}

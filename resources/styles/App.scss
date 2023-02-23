@@ -1,0 +1,231 @@
+@import "./_fonts";
+@import "./_variables";
+
+@mixin mode($name, $backgroundColor, $primaryColor, $defaultFontFamily, $defaultFontSize, $linkColor, $linkTextColor, $dangerColor, $defaultBorderRadius, $borderColor, $inputBoxShadow) {
+  .app-mode-#{$name} {
+    background-color: #{$backgroundColor};
+    color: #{$primaryColor};
+    font-family: #{$defaultFontFamily};
+    font-size: #{$defaultFontSize};
+
+    svg path {
+      fill: #{$primaryColor};
+    }
+
+    input, select {
+      font-family: #{$defaultFontFamily};
+      font-size: #{$defaultFontSize};
+    }
+
+    a {
+      color: #{$linkColor};
+    }
+
+    .icon {
+      color: #{$primaryColor};
+
+      &.icon-danger {
+        color: #{$dangerColor};
+      }
+    }
+
+    .input {
+      border-radius: #{$defaultBorderRadius};
+      border: 1px solid #{$borderColor};
+      box-shadow: #{$inputBoxShadow};
+      background-color: #{$backgroundColor};
+      color: #{$primaryColor};
+
+      &:active {
+        outline: rgba($blackColor, 50%);
+      }
+
+      &::placeholder, &:-ms-input-placeholder, &::-ms-input-placeholder {
+        color: #{$primaryColor};
+        opacity: 0.5;
+      }
+
+      &.input-error {
+        border-color: #{$dangerColor};
+      }
+    }
+
+    button, input[type="submit"] {
+      border-radius: #{$defaultBorderRadius};
+      font-size: #{$defaultFontSize};
+      font-family: #{$defaultFontFamily};
+      background-color: #{$linkColor};
+      color: #{$linkTextColor};
+      box-shadow: #{$inputBoxShadow};
+
+      &.button-muted {
+        color: #{$primaryColor};
+      }
+
+      &.button-link {
+        color: #{$linkColor};
+
+        &.button-link-black {
+          color: #{$primaryColor};
+        }
+      }
+    }
+
+    .loading-overlay {
+      background-color: rgba($primaryColor, 10%);
+      transition: all $defaultTransition;
+      opacity: 1;
+      &.fade-in {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+@include mode(
+                "bright",
+                $brightMode-color-background,
+                $brightMode-color-primary,
+                $default-fontFamily,
+                $default-fontSize,
+                $brightMode-color-highlight,
+                $brightMode-color-highlight-text,
+                $brightMode-color-danger,
+                $default-borderRadius,
+                $brightMode-color-border,
+                $brightMode-boxShadow-input
+);
+
+@include mode(
+                "dark",
+                $darkMode-color-background,
+                $darkMode-color-primary,
+                $default-fontFamily,
+                $default-fontSize,
+                $darkMode-color-highlight,
+                $darkMode-color-highlight-text,
+                $darkMode-color-danger,
+                $default-borderRadius,
+                $darkMode-color-border,
+                $darkMode-boxShadow-input
+);
+
+#root {
+  min-height: 100vh;
+}
+
+#app {
+  max-height: 100vh;
+  min-height: 100vh;
+  padding: 21px 0 14px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  &.app-loading {
+    align-items: center;
+    justify-content: center;
+  }
+
+  &.switching-modes {
+    transition: all $defaultTransition;
+  }
+}
+
+img {
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -o-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+p {
+  margin: 0;
+}
+
+input, select {
+  box-sizing: border-box;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  padding: 7px 15px;
+  box-sizing: border-box;
+  line-height: 15px;
+  transition: border-color $defaultTransition;
+}
+
+.form {
+  .input, .input-wrapper, input, p, select {
+    + .input, + input, + p, + select, + .input-wrapper {
+      margin-top: $margin-form;
+    }
+  }
+}
+
+.form-margin {
+  margin-top: $margin-form;
+}
+
+.font-magnificent {
+  font-size: 20px;
+  text-align: center;
+  font-weight: 700;
+}
+
+button, input[type="submit"] {
+  border: none;
+  padding: 10px 20px;
+  font-weight: 700;
+
+  &.button-muted {
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  &.button-grey {
+    background-color: $darkGreyColor;
+  }
+
+  &.button-link {
+    background-color: transparent;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  &.button-contained {
+    width: 100%;
+  }
+
+  &.button-fat {
+    padding: 10px;
+  }
+}
+
+.loading-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  lefT: 0;
+  right: 0;
+  bottom: 0;
+
+  .loading {
+    top: 50%;
+    left: 50%;
+  }
+}

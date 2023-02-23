@@ -1,0 +1,81 @@
+@import "./_variables";
+
+.top-menu-wrapper {
+  padding: 0 $outerPadding;
+  z-index: $zOverlayed;
+}
+
+.top-menu {
+  height: $topMenuHeight;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: $zForeground;
+
+  .top-menu-label {
+    max-width: 80vw;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 40px;
+    white-space: nowrap;
+    overflow: hidden;
+
+    > p {
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    &:active {
+      background-color: $hoverBackgroundColor;
+    }
+
+    > div {
+      text-align: center;
+      padding: 0 $defaultPadding;
+    }
+
+    .small-text {
+      color: $linkColor;
+      text-decoration: underline;
+    }
+
+    .top-menu-label-inline {
+      display: flex;
+      align-items: center;
+      > p {
+        margin-left: 10px;
+      }
+    }
+
+    .top-menu-label-folder {
+      font-size: 20px;
+
+      > p {
+        font-weight: 700;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+    }
+  }
+
+  .settings-container, .back-button {
+    position: absolute;
+
+    &:active {
+      background-color: $hoverBackgroundColor;
+    }
+  }
+
+  .settings-container {
+    right: 0;
+
+    .settings-menu {
+      margin-top: 30px;
+    }
+  }
+
+  .back-button {
+    left: 0;
+  }
+}

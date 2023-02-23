@@ -1,0 +1,74 @@
+$color-black: #000000;
+$color-white: #ffffff;
+$color-blue-royal: #2F7AEB;
+$color-blue-cove: #6d9cbe;
+$color-blue-steel: #4C84AC;
+$color-red-mojo: #BD3A3A;
+$color-red-youtube: #ff0000;
+$color-gray-mine: #2b2b2b;
+$color-gray-gallery: #ededed;
+$color-yellow-ronchi: #e7be55;
+$color-orange-reddit: #ff4500;
+
+$default-fontFamily: Roboto;
+
+$default-fontSize: 12px;
+
+$default-borderRadius: 5px;
+
+$margin-form: 15px;
+
+$brightMode-color-primary: $color-black;
+$brightMode-color-background: $color-gray-gallery;
+$brightMode-color-highlight: $color-blue-royal;
+$brightMode-color-highlight-text: $color-white;
+$brightMode-color-danger: $color-red-mojo;
+$brightMode-color-border: rgba($color-black, 0.4);
+$brightMode-boxShadow-input: 0 2px 5px 1px rgba($color-black, 7%);
+
+$darkMode-color-primary: $color-yellow-ronchi;
+$darkMode-color-background: $color-gray-mine;
+$darkMode-color-highlight: $color-blue-steel;
+$darkMode-color-highlight-text: $color-black;
+$darkMode-color-danger: $color-red-mojo;
+$darkMode-color-border: rgba($color-yellow-ronchi, 0.4);
+$darkMode-boxShadow-input: 0 2px 5px 1px rgba($color-black, 7%);
+
+
+$whiteColor: #ffffff;
+$blackColor: #000000;
+$darkGreyColor: #747474;
+$blueColor: #2F7AEB;
+$redColor: #cf513d;
+
+$dangerColor: #cf513d;
+$offColor: #b6b6b6;
+$linkColor: #2F7AEB;
+$hoverBackgroundColor: rgba($blackColor, 10%);
+$textColor: $blackColor;
+$primaryColor: $blackColor;
+
+$defaultFontSize: 12px;
+$bigFontSize: 16px;
+
+$defaultLineHeight: 21px;
+
+$defaultFontFamily: Roboto;
+
+$outerPadding: 8.3vw;
+$defaultPadding: 5vw;
+
+$defaultBorderRadius: 5px;
+
+$inputBoxShadow: 0 2px 5px 1px rgba($blackColor, 7%);
+
+$zForeground: 10;
+$zOverlayed: 200;
+$zModal: 250;
+
+$controlMenuHeight: 80px;
+$topMenuHeight: 40px;
+
+$cardVerticalPadding: 13px;
+
+$defaultTransition: 0.3s;

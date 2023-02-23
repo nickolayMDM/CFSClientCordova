@@ -1,0 +1,23 @@
+@import "../_variables";
+@import "../_animations";
+
+.popup-title {
+  position: absolute;
+  border-radius: $defaultBorderRadius;
+  padding: 5px 10px;
+  background-color: $whiteColor;
+  margin-top: 3px;
+  color: $dangerColor;
+  box-shadow: $inputBoxShadow;
+  max-width: 100%;
+  z-index: $zForeground;
+  opacity: 1;
+
+  &.transition {
+    transition: $defaultTransition opacity;
+  }
+
+  &.fade {
+    opacity: 0;
+  }
+}

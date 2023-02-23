@@ -1,0 +1,108 @@
+@import "./_variables";
+
+@mixin mode($name, $backgroundColor, $linkColor) {
+  .app-mode-#{$name} .control-menu {
+    background-color: #{$backgroundColor};
+    .control-menu-buttons-container {
+      background-color: #{$backgroundColor};
+      > div .image-wrapper .highlighted-icon-text {
+        text-shadow: -1px -1px 0 #{$backgroundColor}, 1px -1px 0 #{$backgroundColor}, -1px 1px 0 #{$backgroundColor}, 1px 1px 0 #{$backgroundColor};
+        color: $linkColor;
+      }
+    }
+  }
+}
+
+@include mode(
+                "bright",
+                $brightMode-color-background,
+                $brightMode-color-highlight
+);
+
+@include mode(
+                "dark",
+                $darkMode-color-background,
+                $darkMode-color-highlight
+);
+
+#app.switching-modes .control-menu {
+  transition: all $defaultTransition;
+  .control-menu-buttons-container {
+    transition: all $defaultTransition;
+  }
+  .search-input {
+    transition: all $defaultTransition;
+  }
+}
+
+.control-menu {
+  width: 100vw;
+  transition: padding-top 0.2s;
+  position: relative;
+  .control-menu-buttons-container {
+    position: relative;
+    display: flex;
+    height: $controlMenuHeight;
+    justify-content: space-between;
+    align-items: flex-start;
+    z-index: $zForeground;
+    padding: 0 $outerPadding;
+
+    > div {
+      min-width: 47px;
+      min-height: 100%;
+      display: flex;
+      text-align: center;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 1s;
+
+      &:active {
+        background-color: $hoverBackgroundColor;
+      }
+
+      &.rotated {
+        transform: rotate(360deg);
+      }
+
+      &.home-button {
+        padding-top: 19px;
+      }
+
+      &.search-button {
+        padding-top: 20px;
+      }
+
+      &.add-folder-button {
+        padding-top: 8px;
+        .description-text {
+          max-width: 80px;
+        }
+      }
+
+      &.add-post-button {
+        padding-top: 14px;
+      }
+
+      &.upgrade-button {
+        padding-top: 14px;
+      }
+
+      .image-wrapper {
+        position: relative;
+        width: 100%;
+
+        .highlighted-icon-text {
+          position: absolute;
+          right: 0;
+          font-weight: 700;
+        }
+      }
+
+      .description-text {
+        margin: 3px 0 0;
+        max-width: 60px;
+      }
+    }
+  }
+}

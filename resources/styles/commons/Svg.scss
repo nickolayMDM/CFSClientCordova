@@ -1,0 +1,35 @@
+@import "../_variables";
+
+@mixin mode($name, $linkColor) {
+  .app-mode-#{$name} {
+    svg {
+      path[fill="#2c7beb"] {
+        fill: $linkColor;
+      }
+    }
+  }
+}
+
+@include mode(
+                "bright",
+                $brightMode-color-highlight
+);
+
+@include mode(
+                "dark",
+                $darkMode-color-highlight
+);
+
+#app {
+  .svg-white path {
+    fill: $color-white;
+  }
+
+  .svg-reddit path {
+    fill: $color-orange-reddit;
+  }
+
+  .svg-youtube path {
+    fill: $color-red-youtube;
+  }
+}

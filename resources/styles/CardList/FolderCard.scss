@@ -1,0 +1,21 @@
+@import "../_variables";
+
+.folder-card {
+  .name {
+    margin: 0 10px;
+    flex: 1;
+    font-size: $bigFontSize;
+    font-weight: 700;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  .indicators {
+    align-items: center;
+
+    > div {
+      margin: 3px 0;
+    }
+  }
+}

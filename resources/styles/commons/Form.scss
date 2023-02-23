@@ -1,0 +1,8 @@
+@import "../_variables";
+@import "../_animations";
+
+.form-error {
+  .input-invalid {
+    border-color: red;
+  }
+}

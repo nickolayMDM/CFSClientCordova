@@ -1,0 +1,23 @@
+@import "../_variables";
+
+#app .password-input {
+  display: flex;
+  padding: 0;
+
+  .input-wrapper {
+    flex-grow: 1;
+  }
+
+  input {
+    padding: 7px 15px;
+    flex-grow: 1;
+    border: 0;
+  }
+
+  button {
+    background-color: transparent;
+    box-shadow: none;
+    color: black;
+    padding: 0 8px;
+  }
+}
